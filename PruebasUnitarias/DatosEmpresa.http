@@ -1,0 +1,52 @@
+### GET // FUNCION PARA SELECCIONAR TODOS LOS DATOS DE EMPRESA ACTIVOS
+GET https://3069.nativecode.cl/datosempresa/seleccionartodos
+Content-Type: application/json
+
+
+
+### POST // FUNCION PARA SELECCIONAR DATOS DE EMPRESA POR ID
+POST http://localhost:3010/datosempresa/seleccionarporid
+Content-Type: application/json
+
+{
+  "id_empresa": 1
+}
+
+
+
+### POST // FUNCION PARA ACTUALIZAR DATOS DE EMPRESA
+POST http://localhost:3010/datosempresa/actualizar
+Content-Type: application/json
+
+{
+  "empresaNombre": "Silueta Chic",
+  "contactoTelefono": "+56912345678",
+  "contactoWhatsapp": "+56912345678",
+  "contactoEmail": "contacto@siluetachic.cl",
+  "contactoDireccion": "Av. Siempre Viva 123, Santiago",
+  "contactoUrlMapa": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3210.7519572268006!2d-71.95894310000001!3d-36.415196099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9668cd569642eccb%3A0x175c9bd3fb237769!2sGral.%20Jos%C3%A9%20Vicente%20Venegas%201381%2C%203840000%20San%20Carlos%2C%20%C3%91uble!5e0!3m2!1ses-419!2scl!4v1780416914940!5m2!1ses-419!2scl",
+  "sobreNosotrosTitulo": "Sobre nosotros",
+  "sobreNosotrosParrafo1": "Centro especializado en atencion estetica y bienestar.",
+  "sobreNosotrosParrafo2": "Trabajamos con atencion personalizada y servicios profesionales.",
+  "socialInstagramUrl": "https://instagram.com/siluetachic",
+  "socialInstagramHandle": "@siluetachic",
+  "socialFacebookUrl": "https://facebook.com/siluetachic",
+  "socialTwitterUrl": "https://twitter.com/siluetachic",
+  "socialLinkedinUrl": "https://linkedin.com/company/siluetachic",
+  "socialTiktokUrl": "https://tiktok.com/@siluetachic",
+  "socialYoutubeUrl": "https://youtube.com/@siluetachic",
+  "socialOtraUrl": "https://siluetachic.cl",
+  "socialOtraEtiqueta": "Sitio web",
+  "id_empresa": 1
+}
+
+
+
+### POST // VALIDACION SIN DATOS OBLIGATORIOS
+POST http://localhost:3001/datosempresa/actualizar
+Content-Type: application/json
+
+{
+  "empresaNombre": "Silueta Chic",
+  "id_empresa": 1
+}

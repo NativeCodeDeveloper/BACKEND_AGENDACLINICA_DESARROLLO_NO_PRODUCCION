@@ -1,0 +1,42 @@
+### POST request to example server
+POST http://localhost:3001/reservaPacientes/insertarReservaPacienteFicha
+Content-Type: application/json
+
+  {
+    "nombrePaciente": "Juan",
+    "apellidoPaciente": "Pérez",
+    "rut": "12345678-9",
+    "telefono": "+56912345678",
+    "email": "juan@correo.cl",
+    "fechaInicio": "2026-06-01",
+    "horaInicio": "10:00:00",
+    "fechaFinalizacion": "2026-06-01",
+    "horaFinalizacion": "11:00:00",
+    "monto_reserva": "20000",
+    "motivo_reserva": "Atencion General",
+    "estadoReserva": "reservada",
+    "id_profesional": 25
+  }
+
+
+
+### POST request to example server
+POST http://localhost:3001/reservaPacientes/insertarReservaPacienteFicha
+Content-Type: application/json
+
+{
+  "nombrePaciente": "Juan",
+  "apellidoPaciente": "Pérez",
+  "rut": "12345678-9",
+  "telefono": "+56912345678",
+  "email": "juan@correo.cl",
+  "fechaInicio": "2026-06-01",
+  "horaInicio": "10:00:00",
+  "fechaFinalizacion": "2026-06-01",
+  "horaFinalizacion": "11:00:00",
+  "monto_reserva": "20000",
+  "motivo_reserva": "Atencion General",
+  "estadoReserva": "reservada",
+  "id_profesional": 25
+}
+

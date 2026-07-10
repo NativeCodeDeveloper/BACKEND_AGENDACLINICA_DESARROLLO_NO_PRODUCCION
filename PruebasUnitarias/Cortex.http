@@ -1,0 +1,11 @@
+
+### POST request to example server
+POST http://localhost:3010/cortex/mensaje
+Content-Type: application/json
+
+{
+  "mensaje": [
+    {"role": "user", "content": "nicolas machuca carrasco 191695879"}
+  ]
+}
+
