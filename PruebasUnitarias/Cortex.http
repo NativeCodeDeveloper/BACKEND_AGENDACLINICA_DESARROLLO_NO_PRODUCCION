@@ -5,7 +5,7 @@ Content-Type: application/json
 
 {
   "mensaje": [
-    {"role": "user", "content": "nicolas machuca carrasco 191695879"}
+    {"role": "user", "content": "que tools tienes disponibles?"}
   ]
 }
 
