@@ -20,6 +20,16 @@ Content-Type: application/json
 }
 
 
+
+### Buscar pacientes por rut exacto
+POST http://localhost:3010/pacientes/buscarRutEspecifico
+Content-Type: application/json
+
+{
+  "rut": "191695879"
+}
+
+
 ### Buscar pacientes por coincidencia de nombre
 POST http://localhost:3001/pacientes/contieneNombre
 Content-Type: application/json

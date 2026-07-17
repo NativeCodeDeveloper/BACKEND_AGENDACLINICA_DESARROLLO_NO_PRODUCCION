@@ -81,6 +81,49 @@ export default class Producto {
 
 
 
+    //SELECCION DE PRODUCTOS POR categoriaProducto
+    async selectProducto_subCategoria(categoriaProducto, subcategoria){
+        const conexion = DataBase.getInstance();
+
+        const query = 'SELECT * FROM productos WHERE categoriaProducto = ? AND subcategoria = ? AND estadoProducto <> 0';
+
+        const param = [categoriaProducto,subcategoria];
+
+        try {
+            const resultado = await conexion.ejecutarQuery(query, param);
+            return resultado;
+
+        } catch (error) {
+            throw new Error('Problema al establecer la conexion con la base de datos desde la clase Productos.js')
+
+        }
+    }
+
+
+
+    //SELECCION DE PRODUCTOS POR subsubcategoria
+    async selectProducto_subsubCategoria(categoriaProducto, subcategoria, subsubcategoria){
+        const conexion = DataBase.getInstance();
+
+        const query = 'SELECT * FROM productos WHERE categoriaProducto = ? AND subcategoria = ? AND subsubcategoria = ? AND estadoProducto <> 0';
+        const param = [categoriaProducto,subcategoria,subsubcategoria];
+
+        try {
+            const resultado = await conexion.ejecutarQuery(query, param);
+            if(Array.isArray(resultado) && resultado.length > 0){
+                return resultado;
+            }else {
+                return [];
+            }
+        } catch (error) {
+            throw new Error('Problema al establecer la conexion con la base de datos desde la clase Productos.js')
+
+        }
+    }
+
+
+
+
 
 // ACTUALIZACION DE  PRODUCTO EN LA BASE DE DATOS
   async updateProducto(

@@ -28,6 +28,7 @@ export default class BloqueoAgenda {
                 AND horaFinalizacion > ?`;
             const paramsPrevios = [id_profesional, fechaFinalizacion, fechaInicio, horaFinalizacion, horaInicio];
 
+
             const respuestaBackendVerificadora = await conexion.ejecutarQuery(queryPrevia, paramsPrevios);
             if (respuestaBackendVerificadora.length > 0) {
                 return {conflicto: "bloqueo"};
@@ -44,6 +45,12 @@ export default class BloqueoAgenda {
             if (!horarioDisponible) {
                 return {conflicto: "reserva"};
             }
+
+            console.log(" ");
+            console.log(`INFORMACION QUE LLEGA PARA SER BLOQUEADA AL MODEL:`);
+            console.log(id_profesional,fechaInicio,horaInicio,fechaFinalizacion,horaFinalizacion,motivo);
+
+
 
             const query = 'INSERT INTO bloqueoAgenda (id_profesional,fechaInicio,horaInicio,fechaFinalizacion,horaFinalizacion,motivo) VALUES (?,?,?,?,?,?)';
             const params = [id_profesional,fechaInicio,horaInicio,fechaFinalizacion,horaFinalizacion,motivo];

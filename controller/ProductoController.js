@@ -49,6 +49,48 @@ export default class ProductoController {
 
 
 
+    // SELECCION DE LOS PRODUCTOS DE LA BASE DE DATOS sub_CATEGORIA POR ID
+    static async seleccionarProducto_subCategoria(req, res) {
+        try {
+            const {categoriaProducto,subcategoria} = req.body;
+            console.log(categoriaProducto,subcategoria);
+            const producto = new Producto();
+
+            if (!categoriaProducto || !subcategoria) {
+                return res.status(404).json({message:"sindato"});
+
+            } else {
+                const dataProducto = await producto.selectProducto_subCategoria(categoriaProducto,subcategoria);
+                return res.json(dataProducto);
+            }
+        } catch (error) {
+            res.status(500).json({message: "Error de Servidor",});
+        }
+    }
+
+
+
+    // SELECCION DE LOS PRODUCTOS DE LA BASE DE DATOS sub_CATEGORIA POR ID
+    static async seleccionarProducto_sub_sub_Categoria(req, res) {
+        try {
+            const {categoriaProducto,subcategoria,subsubcategoria} = req.body;
+            console.log(categoriaProducto,subcategoria,subsubcategoria);
+            const producto = new Producto();
+
+            if (!categoriaProducto || !subcategoria || !subsubcategoria) {
+                return res.status(404).json({message:"sindato"});
+
+            } else {
+                const dataProducto = await producto.selectProducto_subsubCategoria(categoriaProducto,subcategoria,subsubcategoria);
+                return res.json(dataProducto);
+            }
+        } catch (error) {
+            res.status(500).json({message: "sindato",});
+        }
+    }
+
+
+
     // SELECCION DE LOS PRODUCTOS DE LA BASE DE DATOS CATEGORIA POR SIMILITUD DE NOMBRE
     static async seleccionarProductoSimilar(req, res) {
         try {

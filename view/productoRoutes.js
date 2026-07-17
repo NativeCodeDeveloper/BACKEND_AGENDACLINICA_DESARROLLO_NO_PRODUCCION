@@ -9,6 +9,13 @@ router.post('/seleccionarProductoEspecifico_id', ProductoController.seleccionarP
 router.post('/insertarProducto', ProductoController.insertarProducto);
 router.post('/seleccionarPorSubcategoria', ProductoController.seleccionarProductoSubcategoria);
 router.post('/seleccionarPorSubSubcategoria', ProductoController.seleccionarProductoSubSubcategoria);
+
+
+router.post('/categoriaProducto', ProductoController.seleccionarProductoCategoria);
+router.post('/seleccionarProducto_subCategoria', ProductoController.seleccionarProducto_subCategoria);
+router.post('/seleccionarProducto_sub_sub_Categoria', ProductoController.seleccionarProducto_sub_sub_Categoria);
+
+
 router.post('/actualizarProducto', ProductoController.actualizarProducto);
 router.post('/actualizarStock', ProductoController.actualizarStock);
 router.post('/eliminarProducto', ProductoController.eliminarProducto);
