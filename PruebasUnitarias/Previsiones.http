@@ -1,0 +1,56 @@
+### POST // FUNCION PARA INSERTAR UNA PREVISION
+POST http://localhost:3010/previsiones/insertarPrevision
+Content-Type: application/json
+
+{
+  "nombre_prevision": "Fonasa",
+  "cobertura_prevision": "80",
+  "descripcion_prevision": "Cobertura estatal de salud"
+}
+
+
+
+### POST // VALIDACION SIN NOMBRE_PREVISION
+POST http://localhost:3010/previsiones/insertarPrevision
+Content-Type: application/json
+
+{
+  "cobertura_prevision": "80",
+  "descripcion_prevision": "Cobertura estatal de salud"
+}
+
+
+
+### POST // VALIDACION SIN COBERTURA_PREVISION
+POST http://localhost:3010/previsiones/insertarPrevision
+Content-Type: application/json
+
+{
+  "nombre_prevision": "Fonasa",
+  "descripcion_prevision": "Cobertura estatal de salud"
+}
+
+
+
+### POST // VALIDACION SIN DESCRIPCION_PREVISION
+POST http://localhost:3010/previsiones/insertarPrevision
+Content-Type: application/json
+
+{
+  "nombre_prevision": "Fonasa",
+  "cobertura_prevision": "80"
+}
+
+
+
+### POST // VALIDACION SIN DATOS OBLIGATORIOS
+POST http://localhost:3010/previsiones/insertarPrevision
+Content-Type: application/json
+
+{
+}
+
+
+
+### GET // SELECCIONAR TODAS LAS PREVISIONES
+GET http://localhost:3010/previsiones/seleccionarPrevisiones

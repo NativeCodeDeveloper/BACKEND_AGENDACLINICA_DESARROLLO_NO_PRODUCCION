@@ -26,7 +26,7 @@ class DataBase {
         }
     }
 
-    // Método para ejecutar consultas SQL
+    // Metodo para ejecutar consultas SQL
     async ejecutarQuery(query, params) {
         const [rows] = await this.pool.query(query, params);
         return rows;
