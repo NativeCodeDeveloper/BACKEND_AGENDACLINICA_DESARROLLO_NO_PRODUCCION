@@ -38,15 +38,9 @@ import recetasPacientesRoutes from "./view/recetasPacientesRoutes.js";
 import datosEmpresaRoutes from "./view/datosEmpresaRoutes.js";
 import archivoPacienteRoutes from "./view/archivoPacienteRoutes.js";
 import cortexRoutes from "./view/cortexRoutes.js";
-<<<<<<< HEAD
-import previsionesRoutes from "./view/previsionesRoutes.js";
-=======
 import cotizacionPacienteRoutes from "./view/cotizacionPacienteRoutes.js";
-import detalleCotizacion from "./view/detalleCotizacionRoutes.js"
 import envioCotizacionRoutes from "./view/envioCotizacionRoutes.js";
->>>>>>> 25241a5 (CORTEX RESERVAS 1 / BACKEND)
-
-
+import detalleCotizaciones from "./view/detalleCotizacionRoutes.js"
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -99,14 +93,10 @@ app.use("/recetas", recetasPacientesRoutes);
 app.use("/datosempresa", datosEmpresaRoutes);
 app.use("/archivoPaciente", archivoPacienteRoutes);
 app.use("/cortex", cortexRoutes);
-<<<<<<< HEAD
-app.use("/previsiones", previsionesRoutes);
-=======
 app.use("/cotizacionPaciente", cotizacionPacienteRoutes);
-app.use("/detalleCotizacion", detalleCotizacion);
+app.use("/detalleCotizacion", detalleCotizaciones);
 app.use("/envioCotizacionCorreo", envioCotizacionRoutes);
 
->>>>>>> 25241a5 (CORTEX RESERVAS 1 / BACKEND)
 
 // Ruta para ejecutar recordatorios manualmente (protegido con TEST_API_KEY)
 app.get('/recordatorios/ejecutar', async (req, res) => {
