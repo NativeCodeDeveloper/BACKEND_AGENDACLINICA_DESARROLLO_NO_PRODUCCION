@@ -135,4 +135,23 @@ static async eliminarCategoria(req, res) {
         }
     }
 
+
+
+    async seleccionar_categoria_subcategoria_subsubcategoria(req, res) {
+        try {
+            const categoriaModel = new Categorias();
+            const respuestaModel = await categoriaModel.seleccionar_categoria_subcategoria_descripcion();
+
+            if(Array.isArray(respuestaModel) && respuestaModel.length > 0){
+                return res.status(200).json(respuestaModel);
+            } else {
+                return res.status(400).json([]);
+            }
+        }catch (e) {
+            res.status(500).json({
+                error: e.message,
+            });
+        }
+    }
+
 }

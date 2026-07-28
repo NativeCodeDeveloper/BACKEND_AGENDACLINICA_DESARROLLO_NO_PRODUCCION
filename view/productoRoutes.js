@@ -27,6 +27,7 @@ router.get('/seleccionarOfertas', ProductoController.seleccionarTodosProductosOf
 router.post('/categoriaProducto', ProductoController.seleccionarProductoCategoria);
 router.get('/ordenarMayor', ProductoController.seleccionarTodosProductosMayorPrecio);
 router.get('/ordenarMenor', ProductoController.seleccionarTodosProductosMenorPrecio);
+router.get('/seleccionar_por_categorias', ProductoController.seleccionar_productos_todas_categorias);
 router.get('/:id_producto', ProductoController.seleccionarProductoEspecifico);
 
 

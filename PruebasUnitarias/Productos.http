@@ -108,3 +108,10 @@ Content-Type: application/json
 
 ### GET request to example server
 GET http://localhost:3010/producto/seleccionarProducto
+
+
+
+
+
+### GET request to example server
+GET http://localhost:3010/producto/seleccionar_por_categorias

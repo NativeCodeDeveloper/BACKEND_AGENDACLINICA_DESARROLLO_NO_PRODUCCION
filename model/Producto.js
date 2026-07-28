@@ -485,4 +485,61 @@ try {
         }
     }
 
+
+
+
+
+    async seleccionar_productos_categoria_subcategoria_subsubcategoria(){
+        try {
+            const conexion = DataBase.getInstance();
+            const query = `
+
+SELECT 
+productos.id_producto,
+productos.tituloProducto,
+productos.descripcionProducto,
+productos.valorProducto,
+
+categoriaProductos.id_categoriaProducto,
+categoriaProductos.descripcionCategoria AS categoria_nombre,
+categoriaProductos.estadoCategoria,
+
+subcategoriaProductos.id_subcategoria,
+subcategoriaProductos.id_categoriaProducto,
+subcategoriaProductos.descripcionCategoria AS subcategoria_nombre,
+
+SubSubCategoriaProductos.id_subsubcategoria,
+SubSubCategoriaProductos.id_subcategoria,
+SubSubCategoriaProductos.descripcionSubSubCategoria AS sub_sub_categoría_nombre,
+SubSubCategoriaProductos.estado_SubSubcategoria
+
+FROM categoriaProductos
+
+INNER JOIN subcategoriaProductos
+ON subcategoriaProductos.id_categoriaProducto = categoriaProductos.id_categoriaProducto
+
+INNER JOIN SubSubCategoriaProductos
+ON SubSubCategoriaProductos.id_subcategoria = subcategoriaProductos.id_subcategoria
+
+INNER JOIN productos
+ON productos.categoriaProducto = categoriaProductos.id_categoriaProducto
+AND productos.subcategoria = subcategoriaProductos.id_subcategoria
+AND productos.subsubcategoria = SubSubCategoriaProductos.id_subsubcategoria
+
+WHERE
+
+categoriaProductos.estadoCategoria <> 0 AND
+subcategoriaProductos.estado_subcategoria <> 0 AND
+SubSubCategoriaProductos.estado_SubSubcategoria <> 0 AND
+productos.estadoProducto <> 0
+`;
+
+            return conexion.ejecutarQuery(query);
+
+        }catch (e) {
+            throw e;
+        }
+    }
+
+
 }

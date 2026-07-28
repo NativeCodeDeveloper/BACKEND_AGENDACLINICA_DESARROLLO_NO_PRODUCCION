@@ -1,0 +1,96 @@
+### 1. Insertar una nueva cotización
+POST http://localhost:3010/cotizacionPaciente/insertarCotizacion
+Content-Type: application/json
+
+{
+  "nombre_cotizacion": "Cotización Dental Inicial",
+  "profesional_solicitante_nombre": "Dr. Juan Pérez",
+  "total_presupuesto_cotizado": 1500.50,
+  "id_paciente": 1
+}
+
+### 2. Actualizar una cotización existente
+POST http://localhost:3010/cotizacionPaciente/actualizarCotizacion
+Content-Type: application/json
+
+{
+  "id_cotizacion_paciente": 2,
+  "nombre_cotizacion": "Cotización Dental Actualizada",
+  "profesional_solicitante_nombre": "Dr. Juan Pérez",
+  "total_presupuesto_cotizado": 1800.00,
+  "id_paciente": 2282
+}
+
+### 3. Seleccionar una cotización específica por su ID
+POST http://localhost:3010/cotizacionPaciente/seleccionarCotizacionEspecifica
+Content-Type: application/json
+
+{
+  "id_cotizacion_paciente": 15
+}
+
+### 4. Seleccionar cotizaciones de un paciente por ID y Estado
+POST http://localhost:3010/cotizacionPaciente/seleccionar_cotizaciones_paciente_especifico_por_id
+Content-Type: application/json
+
+{
+  "id_paciente": 2282,
+  "estado_cotizacion": 1
+}
+
+### 5. Seleccionar cotizaciones de un paciente por Estado (Variante)
+POST http://localhost:3010/cotizacionPaciente/seleccionar_cotizaciones_paciente_porEstado
+Content-Type: application/json
+
+{
+  "id_paciente": 2282,
+  "estado_cotizacion": 3
+}
+
+### 6. Seleccionar cotizaciones por Paciente y Profesional
+POST http://localhost:3010/cotizacionPaciente/seleccionar_cotizaciones_paciente_profesional
+Content-Type: application/json
+
+{
+  "id_paciente": 1,
+  "profesional_solicitante_nombre": "Dr. Juan Pérez"
+}
+
+### 7. Eliminar una cotización
+POST http://localhost:3010/cotizacionPaciente/eliminarCotizacion
+Content-Type: application/json
+
+{
+  "id_cotizacion_paciente": 2
+}
+
+### 8. Prueba de error (Validación 'sindata' - enviando cuerpo vacío)
+POST http://localhost:3010/cotizacionPaciente/seleccionar_cotizaciones_paciente_profesional
+Content-Type: application/json
+
+{
+  "id_paciente":  2282,
+  "profesional_solicitante_nombre": "nico"
+}
+
+
+
+### 9. Actualizar el total de una cotización
+POST http://localhost:3010/cotizacionPaciente/actualizarTotal
+Content-Type: application/json
+
+{
+  "id_cotizacion_paciente": 19,
+  "total_presupuesto_cotizado": 1500.00,
+  "abono_paciente": 500.00,
+  "total_tratamiento": 2000.00
+}
+
+
+### 9. Seleccionar un paciente especifico por ID
+POST http://localhost:3010/cotizacionPaciente/seleccionar_cotizaciones_paciente
+Content-Type: application/json
+
+{
+  "id_paciente": 2282
+}

@@ -494,6 +494,21 @@ export default class ProductoController {
     }
 
 
+    static async seleccionar_productos_todas_categorias(req, res) {
+        try {
+            const producto = new Producto();
+            const dataProducto = await producto.seleccionar_productos_categoria_subcategoria_subsubcategoria();
+
+            if(Array.isArray(dataProducto) && dataProducto.length > 0) {
+                return res.json(dataProducto);
+            } else {
+                return res.status(200).json([]);
+            }
+        } catch (error) {
+            res.status(500).json({message: "Error al obtener los productos", error: error.message});
+        }
+    }
+
 
 
 
@@ -519,4 +534,6 @@ export default class ProductoController {
             res.status(500).json({message: "sindato",});
         }
     }
+
+
 }

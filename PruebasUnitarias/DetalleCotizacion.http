@@ -1,0 +1,56 @@
+@baseUrl = http://localhost:3010
+# Usa el ID de una cotizacion existente antes de ejecutar insertar, actualizar o eliminar.
+@idCotizacion = 19
+@idDetalle = 1
+
+### 1. Insertar un detalle de cotizacion
+POST {{baseUrl}}/detalleCotizacion/insertarDetalle
+Content-Type: application/json
+
+{
+  "id_cotizacion": {{idCotizacion}},
+  "producto_servicio_cotizado": "Exodoncia",
+  "valor_producto_cotizado": 1500,
+  "observacion_producto_cotizado": "Paciente con sensibilidad dental"
+}
+
+### 2. Seleccionar los detalles activos de una cotizacion
+# La ruta esta definida como GET, aunque el controlador recibe id_cotizacion desde el body.
+POST {{baseUrl}}/detalleCotizacion/seleccionarPorIdCotizacion
+Content-Type: application/json
+
+{
+  "id_cotizacion": 19
+}
+
+### 3. Actualizar la observacion de un detalle especifico
+# Ajustado para actualizar solo la fila identificada por id_detalle.
+POST {{baseUrl}}/detalleCotizacion/actualizarDetalle
+Content-Type: application/json
+
+{
+  "id_detalle": {{idDetalle}},
+  "observacion_producto_cotizado": "Observacion actualizada desde la prueba HTTP"
+}
+
+### 4. Eliminar logicamente un detalle especifico
+POST {{baseUrl}}/detalleCotizacion/eliminarDetalle
+Content-Type: application/json
+
+{
+  "id_detalle": {{idDetalle}}
+}
+
+### 5. Validacion: insertar sin datos obligatorios (respuesta esperada: 400)
+POST {{baseUrl}}/detalleCotizacion/insertarDetalle
+Content-Type: application/json
+
+{
+  "id_cotizacion": {{idCotizacion}}
+}
+
+### 6. Validacion: consultar sin id_cotizacion (respuesta esperada: 400)
+POST {{baseUrl}}/detalleCotizacion/seleccionarPorIdCotizacion
+Content-Type: application/json
+
+{}

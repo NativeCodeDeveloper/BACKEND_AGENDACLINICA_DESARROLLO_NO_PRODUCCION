@@ -137,9 +137,21 @@ export default class Categorias{
         }
     }
 
+    async seleccionar_Categoria_con_subcategoria(id_categoriaProducto){
+        const conexion = DataBase.getInstance();
+        const query = 'SELECT * FROM categoriaProductos where id_categoriaProducto = ?';
+        const param = [id_categoriaProducto];
+        try {
+            const resultado = await conexion.ejecutarQuery(query, param);
+            if(resultado){
+                return resultado[0];
+            }
 
+        } catch (error) {
+            throw new Error('Problema al establecer la conexion con la base de datos desde la clase Productos.js')
 
-
+        }
+    }
 
 
 }
