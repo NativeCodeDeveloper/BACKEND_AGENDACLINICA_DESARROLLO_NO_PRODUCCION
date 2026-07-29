@@ -157,11 +157,11 @@ export default class Tarifas_profesional {
         try {
             const conexion = DataBase.getInstance();
             const query = `                                                                                                                                                                                             
-  SELECT                                                                                                                                                                                   
+      SELECT                                                                                                                                                                                   
       tarifa.*,
       profesional.nombreProfesional,                                                                                                                                                       
       servicio.nombreServicio                                                                                                                                                            
-  FROM tarifas_profesional AS tarifa                                                                                                                                                      
+      FROM tarifas_profesional AS tarifa                                                                                                                                                      
   INNER JOIN profesionales AS profesional
       ON tarifa.profesional_id = profesional.id_profesional
   INNER JOIN serviciosProfesionales AS servicio
