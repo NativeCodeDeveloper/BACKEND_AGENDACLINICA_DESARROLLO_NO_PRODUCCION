@@ -312,4 +312,33 @@ export default class CotizacionesPacientes {
     }
 
 
+
+
+    //ACTUALIZAR TOTAL DE LA COTIZACION ESPECIFICA POR SU ID
+    async actualizarEstado(
+        estado_cotizacion,
+        id_cotizacion_paciente
+    ) {
+        try {
+            const conexion =  DataBase.getInstance();
+
+            const query = `
+            UPDATE cotizaciones_pacientes
+            SET estado_cotizacion = ?
+            WHERE id_cotizacion_paciente = ?`;
+
+            const params = [
+                estado_cotizacion,
+                id_cotizacion_paciente
+            ];
+
+            return await conexion.ejecutarQuery(query, params);
+
+        }catch (error) {
+            throw error;
+        }
+    }
+
+
+
 }

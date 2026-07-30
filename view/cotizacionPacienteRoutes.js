@@ -21,5 +21,7 @@ router.post("/seleccionar_cotizaciones_paciente", CotizacionPacienteController.s
 
 router.post("/actualizarTotal", CotizacionPacienteController.actualizarTotal);
 
+router.post("/actualizarEstado", CotizacionPacienteController.actualizarEstado);
+
 
 export default router;

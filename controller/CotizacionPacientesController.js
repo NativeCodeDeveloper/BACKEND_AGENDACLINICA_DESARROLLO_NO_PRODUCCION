@@ -402,7 +402,41 @@ export default class CotizacionPacientesController {
     }
 
 
+static async actualizarEstado(req, res) {
+        try {
+            const {
+                estado_cotizacion,
+                id_cotizacion_paciente
+            } = req.body;
 
+
+            if(!id_cotizacion_paciente || !estado_cotizacion) {
+                return res.status(400).send({
+                    message: 'sindata'
+                })
+            }
+
+            const cotizacionPacienteModel = new CotizacionPacientes();
+            const respuestaBackend = await cotizacionPacienteModel.actualizarEstado(
+                estado_cotizacion,
+                id_cotizacion_paciente
+            );
+
+            if (respuestaBackend.affectedRows > 0) {
+                return res.status(200).send({
+                    message: true
+                });
+            } else {
+                return res.status(200).send({
+                    message: false
+                });
+            }
+        }catch (error) {
+            return res.status(500).send({
+                error: error.message
+            })
+        }
+}
 
 
 }
