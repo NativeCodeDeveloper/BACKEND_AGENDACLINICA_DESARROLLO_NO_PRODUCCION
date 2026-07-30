@@ -92,6 +92,7 @@ export default class CotizacionesPacientes {
              cotizaciones_pacientes.nombre_cotizacion, 
              cotizaciones_pacientes.profesional_solicitante_nombre, 
              cotizaciones_pacientes.total_presupuesto_cotizado,
+             cotizaciones_pacientes.observacionesDetalleCotizacion,
              cotizaciones_pacientes.abono_paciente,
              cotizaciones_pacientes.fecha_creacion,
              cotizaciones_pacientes.estado_cotizacion 
@@ -339,6 +340,33 @@ export default class CotizacionesPacientes {
         }
     }
 
+
+
+
+    //ACTUALIZAR TOTAL DE LA observacionesDetalleCotizacion ESPECIFICA POR SU ID
+    async actualizarObservacion(
+        observacionesDetalleCotizacion,
+        id_cotizacion_paciente
+    ) {
+        try {
+            const conexion =  DataBase.getInstance();
+
+            const query = `
+            UPDATE cotizaciones_pacientes
+            SET observacionesDetalleCotizacion = ?
+            WHERE id_cotizacion_paciente = ?`;
+
+            const params = [
+                observacionesDetalleCotizacion,
+                id_cotizacion_paciente
+            ];
+
+            return await conexion.ejecutarQuery(query, params);
+
+        }catch (error) {
+            throw error;
+        }
+    }
 
 
 }

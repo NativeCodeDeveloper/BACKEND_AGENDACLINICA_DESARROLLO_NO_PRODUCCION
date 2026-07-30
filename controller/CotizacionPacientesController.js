@@ -439,6 +439,46 @@ static async actualizarEstado(req, res) {
 }
 
 
+
+
+
+    static async actualizarObservacion(req, res) {
+        try {
+            const {
+                observacionesDetalleCotizacion,
+                id_cotizacion_paciente
+            } = req.body;
+
+
+            if(!id_cotizacion_paciente || !observacionesDetalleCotizacion) {
+                return res.status(400).send({
+                    message: 'sindata'
+                })
+            }
+
+            const cotizacionPacienteModel = new CotizacionPacientes();
+            const respuestaBackend = await cotizacionPacienteModel.actualizarObservacion(
+                observacionesDetalleCotizacion,
+                id_cotizacion_paciente
+            );
+
+            if (respuestaBackend.affectedRows > 0) {
+                return res.status(200).send({
+                    message: true
+                });
+            } else {
+                return res.status(200).send({
+                    message: false
+                });
+            }
+        }catch (error) {
+            return res.status(500).send({
+                error: error.message
+            })
+        }
+    }
+
+
 }
 
 
